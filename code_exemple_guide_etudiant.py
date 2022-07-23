@@ -25,6 +25,7 @@ def calcul_des_filtres(n: int, fc: float, fe: float):
     # Filtre FIR: réponse impulsionnelle d'ordre N-1 à fréquence de coupure fc
     fir_h: np.ndarray = signal.firwin(numtaps=n, cutoff=fc, pass_zero="lowpass", window="hamming", fs=fe)
 
+
     # Filtre FIR: fonctions de transfert harmoniques ("h_dft_*") calculées
     # par freqz() et explicitement par TF pour comparer. Dans l'appel de freqz()
     # pour un FIR, notez les bi qui sont les coefficients de la réponse
@@ -52,6 +53,13 @@ def calcul_des_filtres(n: int, fc: float, fe: float):
     plt.xlabel("n")
     plt.ylabel("Amplitude normalisée")
     plt.legend()
+
+
+
+
+
+
+
     # Graphiques des fonctions de transfert harmoniques du filtre FIR (freqz & TF).
     # Dans le cas de la TF, afin d'extraire les valeurs du spectre aux fréquences
     # non-négatives seulement, remarquez l'usage de la division avec
@@ -67,6 +75,13 @@ def calcul_des_filtres(n: int, fc: float, fe: float):
     plt.xlabel("Fréquence [Hz]")
     plt.ylabel("Gain [dB]")
     plt.legend()
+
+
+
+
+
+
+
     # Graphiques des fonctions de transfert harmoniques du filtre IIR (freqz & TF)
     # aux fréquences non-négatives seulement.
     plt.subplot(3, 1, 3)
@@ -77,6 +92,9 @@ def calcul_des_filtres(n: int, fc: float, fe: float):
     plt.xlabel("Fréquence [Hz]")
     plt.ylabel("Gain [dB]")
     plt.legend()
+    plt.show()
+
+
 
 
 def code_exemple_guide_etudiant():
@@ -84,7 +102,7 @@ def code_exemple_guide_etudiant():
     Fonction principale appelant les fonctions secondaires (e.g. main() en C++)
     """
     # Propriétés par défaut de matplotlib
-    plt.ion()
+    # plt.ion()
     mpl_rcParams["axes.grid"] = True
     mpl_rcParams["axes.grid.which"] = "both"
     mpl_rcParams["figure.autolayout"] = True
